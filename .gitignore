@@ -1,4 +1,26 @@
+# Build outputs
 build/
+build-*/
+out/
+
+# CMake (in case of an accidental in-source configure)
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+
+# Qt Creator
 .qtcreator/
-.cache/
+CMakeLists.txt.user
+CMakeLists.txt.user.*
+
+# Other common editors/IDEs
+.vscode/
+.idea/
+
+# macOS
 .DS_Store
+**/.DS_Store
+
+# Misc local caches
+.cache/
