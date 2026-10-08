@@ -1,4 +1,23 @@
 cmake_minimum_required(VERSION 3.16)
+
+# Homebrew's ITK/VTK on this machine are built against the Command Line Tools SDK, not whichever
+# SDK Xcode bundles by default — mixing the two breaks libc++ header resolution (symptom: "<cstddef>
+# tried including <stddef.h> but didn't find libc++'s <stddef.h> header", or isnan/isinf errors from
+# VTK). IDEs like Qt Creator auto-detect the Xcode SDK by default, so pin the CLT one here instead of
+# relying on every IDE/kit config to get this right. Respects an explicit -DCMAKE_OSX_SYSROOT override.
+if(APPLE AND NOT DEFINED CMAKE_OSX_SYSROOT)
+  execute_process(
+    COMMAND env DEVELOPER_DIR=/Library/Developer/CommandLineTools xcrun --sdk macosx --show-sdk-path
+    OUTPUT_VARIABLE _mrus_clt_sdk_path
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+    ERROR_QUIET
+  )
+  if(_mrus_clt_sdk_path)
+    set(CMAKE_OSX_SYSROOT "${_mrus_clt_sdk_path}" CACHE PATH "Pinned to Command Line Tools SDK to match Homebrew ITK/VTK" FORCE)
+  endif()
+  unset(_mrus_clt_sdk_path)
+endif()
+
 project(mrus-fusion-viewer LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
