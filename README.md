@@ -11,6 +11,20 @@ Four tabs, each a real algorithm run on real data (not a mock UI):
 
 Demo data is bundled in `data/` (one BITE brain MR+US case, three prostate MR+US cases with segmentation labels), so the app runs immediately after cloning — no external downloads needed.
 
+## Screenshots
+
+**1. Filter** — `CurvatureFlowImageFilter` denoising, before/after + diff statistics
+![Filter tab](docs/screenshots/filter.png)
+
+**2. Segment** — region-growing segmentation with ground-truth overlay (green = ground truth, red = result, yellow = overlap) and per-slice Dice
+![Segment tab](docs/screenshots/segment.png)
+
+**3. Register** — 3D rigid registration with an honest result: on this real prostate dataset, Dice after registration (0.24) is often *lower* than the no-registration baseline (0.57), because probe-induced tissue deformation isn't something a rigid transform can express
+![Register tab](docs/screenshots/register.png)
+
+**4. Fusion** — alpha-blended overlay of the registered MR and ultrasound volumes
+![Fusion tab](docs/screenshots/fusion.png)
+
 ## Dependencies
 
 All installed via [Homebrew](https://brew.sh) on macOS:
