@@ -123,7 +123,7 @@ QImage overlaySegmentationVsGroundTruth(Slice2DType::Pointer gray,
     // otherwise this is a genuine out-of-bounds read, not something try/catch can save us from.
     if (errorOut)
     {
-      *errorOut = "内部错误: 灰度图/分割结果/真实标注三者尺寸不一致,已跳过叠加显示";
+      *errorOut = "Internal error: gray image / segmentation result / ground truth sizes don't match, overlay skipped";
     }
     return QImage();
   }

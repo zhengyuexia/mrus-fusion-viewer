@@ -42,7 +42,7 @@ double computeDice(LabelSlice2DType::Pointer a, LabelSlice2DType::Pointer b, QSt
   {
     if (errorOut)
     {
-      *errorOut = QString("Dice 计算出错: ") + err.GetDescription();
+      *errorOut = QString("Dice computation failed: ") + err.GetDescription();
     }
     return std::numeric_limits<double>::quiet_NaN();
   }

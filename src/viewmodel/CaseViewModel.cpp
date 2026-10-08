@@ -40,7 +40,7 @@ QString CaseViewModel::infoText() const
 {
   if (!m_loaded)
   {
-    return "尚未加载";
+    return "Not loaded yet";
   }
   auto mrSize = m_data.mrImage->GetLargestPossibleRegion().GetSize();
   auto usSize = m_data.usImage->GetLargestPossibleRegion().GetSize();
@@ -48,7 +48,7 @@ QString CaseViewModel::infoText() const
   auto usSpacing = m_data.usImage->GetSpacing();
 
   std::ostringstream info;
-  info << (m_data.hasLabels ? "前列腺/有标注" : "BITE脑部/无标注") << "  |  MR: " << mrSize[0] << "x" << mrSize[1]
+  info << (m_data.hasLabels ? "Prostate / labeled" : "BITE Brain / unlabeled") << "  |  MR: " << mrSize[0] << "x" << mrSize[1]
        << "x" << mrSize[2] << " @ " << mrSpacing[0] << "mm" << "  |  US: " << usSize[0] << "x" << usSize[1] << "x"
        << usSize[2] << " @ " << usSpacing[0] << "mm";
   return QString::fromStdString(info.str());

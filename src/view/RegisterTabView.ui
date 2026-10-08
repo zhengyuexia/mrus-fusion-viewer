@@ -5,14 +5,14 @@
   <layout class="QVBoxLayout" name="rootLayout">
    <item>
     <layout class="QHBoxLayout" name="controlRow">
-     <item><widget class="QPushButton" name="runButton"><property name="text"><string>运行 3D 刚性配准(分割标注引导初始化,MR=fixed, US=moving)</string></property></widget></item>
-     <item><widget class="QLabel" name="sliceLabel"><property name="text"><string>切片 Z (MR 网格)</string></property></widget></item>
+     <item><widget class="QPushButton" name="runButton"><property name="text"><string>Run 3D Rigid Registration (label-centroid-guided init, MR=fixed, US=moving)</string></property></widget></item>
+     <item><widget class="QLabel" name="sliceLabel"><property name="text"><string>Slice Z (MR grid)</string></property></widget></item>
      <item><widget class="QSlider" name="sliceSlider"><property name="orientation"><enum>Qt::Horizontal</enum></property></widget></item>
     </layout>
    </item>
    <item>
     <widget class="QLabel" name="statusLabel">
-     <property name="text"><string>尚未运行配准</string></property>
+     <property name="text"><string>Registration not run yet</string></property>
      <property name="wordWrap"><bool>true</bool></property>
     </widget>
    </item>
@@ -34,7 +34,7 @@
      </item>
      <item>
       <widget class="QGroupBox" name="alignedBox">
-       <property name="title"><string>US 配准后(重采样到 MR 网格)</string></property>
+       <property name="title"><string>US After Registration (resampled to MR grid)</string></property>
        <layout class="QVBoxLayout" name="alignedLayout">
         <item>
          <widget class="QLabel" name="alignedView">

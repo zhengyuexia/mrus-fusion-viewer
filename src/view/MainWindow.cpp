@@ -18,17 +18,17 @@ MainWindow::MainWindow(QWidget * parent) : QMainWindow(parent), ui(new Ui::MainW
   m_registerViewModel = std::make_unique<RegisterViewModel>(*m_caseViewModel, this);
   m_fusionViewModel = std::make_unique<FusionViewModel>(*m_caseViewModel, *m_registerViewModel, this);
 
-  ui->tabWidget->addTab(new FilterTabView(*m_filterViewModel, this), "1. 滤波 Filter");
-  ui->tabWidget->addTab(new SegmentTabView(*m_segmentViewModel, this), "2. 分割 Segment");
-  ui->tabWidget->addTab(new RegisterTabView(*m_registerViewModel, this), "3. 配准 Register");
-  ui->tabWidget->addTab(new FusionTabView(*m_fusionViewModel, this), "4. 融合 Fusion");
+  ui->tabWidget->addTab(new FilterTabView(*m_filterViewModel, this), "1. Filter");
+  ui->tabWidget->addTab(new SegmentTabView(*m_segmentViewModel, this), "2. Segment");
+  ui->tabWidget->addTab(new RegisterTabView(*m_registerViewModel, this), "3. Register");
+  ui->tabWidget->addTab(new FusionTabView(*m_fusionViewModel, this), "4. Fusion");
 
   connect(ui->loadButton, &QPushButton::clicked, this, &MainWindow::onLoadClicked);
   connect(ui->datasetCombo, &QComboBox::currentIndexChanged, this, &MainWindow::onDatasetChanged);
   connect(m_caseViewModel.get(), &CaseViewModel::caseLoaded, this,
           [this]() { ui->infoLabel->setText(m_caseViewModel->infoText()); });
   connect(m_caseViewModel.get(), &CaseViewModel::loadFailed, this, [this](QString message) {
-    QMessageBox::warning(this, "读取失败", message);
+    QMessageBox::warning(this, "Load Failed", message);
   });
 
   onDatasetChanged(ui->datasetCombo->currentIndex());

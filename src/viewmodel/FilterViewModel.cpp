@@ -54,7 +54,7 @@ void FilterViewModel::onCaseLoaded()
   m_sliceZ = maxZ / 2;
   emit sliceRangeChanged(maxZ, m_sliceZ);
   refreshBeforePreview();
-  emit statsTextChanged("差值统计:尚未运行");
+  emit statsTextChanged("Diff stats: not run yet");
 }
 
 void FilterViewModel::refreshBeforePreview()
@@ -73,7 +73,7 @@ void FilterViewModel::refreshBeforePreview()
   auto slice = model::sliceOf(vol, m_sliceZ);
   emit beforeImageChanged(model::grayToQImage(slice));
   emit afterImageChanged(QImage());
-  emit statsTextChanged("差值统计:尚未运行");
+  emit statsTextChanged("Diff stats: not run yet");
 }
 
 void FilterViewModel::runFilter()
@@ -93,12 +93,12 @@ void FilterViewModel::runFilter()
     emit afterImageChanged(model::grayToQImage(result.denoised));
 
     std::ostringstream ss;
-    ss << "差值统计(|原图-去噪后|): mean=" << result.meanAbsDiff << "  sigma=" << result.sigmaAbsDiff
-       << "  max=" << result.maxAbsDiff << "  (调用 itk::CurvatureFlowImageFilter,PDE 保边去噪,见 01_denoise.md)";
+    ss << "Diff stats (|original - denoised|): mean=" << result.meanAbsDiff << "  sigma=" << result.sigmaAbsDiff
+       << "  max=" << result.maxAbsDiff << "  (calls itk::CurvatureFlowImageFilter, PDE edge-preserving denoising, see 01_denoise.md)";
     emit statsTextChanged(QString::fromStdString(ss.str()));
   }
   catch (const itk::ExceptionObject & err)
   {
-    emit statsTextChanged(QString("去噪出错: ") + err.GetDescription());
+    emit statsTextChanged(QString("Denoising failed: ") + err.GetDescription());
   }
 }

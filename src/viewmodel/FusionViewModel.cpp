@@ -11,7 +11,7 @@ FusionViewModel::FusionViewModel(CaseViewModel & caseViewModel, RegisterViewMode
 {
   connect(&m_registerViewModel, &RegisterViewModel::resultReady, this, &FusionViewModel::updateFusion);
   connect(&m_caseViewModel, &CaseViewModel::caseLoaded, this,
-          [this]() { emit placeholderMessage("请先在'配准'标签页运行配准"); });
+          [this]() { emit placeholderMessage("Run registration in the 'Register' tab first"); });
 }
 
 void FusionViewModel::setMode(Mode mode)
@@ -38,7 +38,7 @@ void FusionViewModel::updateFusion()
   auto alignedUs = m_registerViewModel.alignedUsImage();
   if (!mr || !alignedUs)
   {
-    emit placeholderMessage("请先在'配准'标签页运行配准");
+    emit placeholderMessage("Run registration in the 'Register' tab first");
     return;
   }
 

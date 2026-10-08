@@ -104,7 +104,7 @@ void SegmentViewModel::refreshPreview()
 
   auto slice = model::sliceOf(vol, m_sliceZ);
   emit viewImageChanged(model::grayToQImage(slice));
-  emit diceTextChanged("Dice: 尚未运行");
+  emit diceTextChanged("Dice: not run yet");
 }
 
 void SegmentViewModel::runSegmentation()
@@ -130,7 +130,7 @@ void SegmentViewModel::runSegmentation()
   }
   catch (const itk::ExceptionObject & err)
   {
-    emit diceTextChanged(QString("区域生长出错(种子点/阈值可能无效): ") + err.GetDescription());
+    emit diceTextChanged(QString("Region growing failed (seed point/threshold may be invalid): ") + err.GetDescription());
     return;
   }
 
@@ -156,13 +156,13 @@ void SegmentViewModel::runSegmentation()
     }
     else
     {
-      emit diceTextChanged(QString("Dice(本次区域生长 vs 真实标注) = %1  (此切片,2D,仅供参考——真正的 3D Dice 见'配准'标签页)")
+      emit diceTextChanged(QString("Dice (this region-growing result vs ground truth) = %1  (this slice only, 2D, for reference -- see the 'Register' tab for the real 3D Dice)")
                                 .arg(dice));
     }
   }
   else
   {
     emit viewImageChanged(model::overlayToQImage(slice, ourMask, 0));
-    emit diceTextChanged("Dice: 勾选'叠加真实标注'后显示");
+    emit diceTextChanged("Dice: shown after checking 'Overlay ground truth'");
   }
 }
