@@ -29,7 +29,7 @@ struct CaseData
   bool hasLabels = false;
 };
 
-// dataRoot is the project's own bundled data/ directory (see QTVIEWER_DATA_DIR in CMakeLists.txt) —
+// dataRoot is the project's own bundled data/ directory (see MRUS_VIEWER_DATA_DIR in CMakeLists.txt) —
 // never a hardcoded absolute path, so the repo still runs after a fresh clone elsewhere.
 CasePaths resolveCasePaths(Dataset dataset, int caseIndex, const QString & dataRoot);
 

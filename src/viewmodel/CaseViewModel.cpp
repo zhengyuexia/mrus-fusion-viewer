@@ -4,8 +4,8 @@
 
 #include <sstream>
 
-#ifndef QTVIEWER_DATA_DIR
-#error "QTVIEWER_DATA_DIR must be defined by CMakeLists.txt"
+#ifndef MRUS_VIEWER_DATA_DIR
+#error "MRUS_VIEWER_DATA_DIR must be defined by CMakeLists.txt"
 #endif
 
 CaseViewModel::CaseViewModel(QObject * parent) : QObject(parent) {}
@@ -24,7 +24,7 @@ void CaseViewModel::load()
 {
   try
   {
-    m_data = model::loadCase(m_dataset, m_caseIndex, QString(QTVIEWER_DATA_DIR));
+    m_data = model::loadCase(m_dataset, m_caseIndex, QString(MRUS_VIEWER_DATA_DIR));
   }
   catch (const itk::ExceptionObject & err)
   {
