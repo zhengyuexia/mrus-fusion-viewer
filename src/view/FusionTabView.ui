@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FusionTabView</class>
+ <widget class="QWidget" name="FusionTabView">
+  <layout class="QVBoxLayout" name="rootLayout">
+   <item>
+    <layout class="QHBoxLayout" name="controlRow">
+     <item><widget class="QLabel" name="modeLabel"><property name="text"><string>方式</string></property></widget></item>
+     <item>
+      <widget class="QComboBox" name="modeCombo">
+       <item><property name="text"><string>alpha 叠加 blend</string></property></item>
+       <item><property name="text"><string>棋盘格 checker</string></property></item>
+      </widget>
+     </item>
+     <item><widget class="QLabel" name="paramLabel"><property name="text"><string>参数(alpha x100 / 棋盘格数)</string></property></widget></item>
+     <item>
+      <widget class="QSlider" name="paramSlider">
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="minimum"><number>1</number></property>
+       <property name="maximum"><number>100</number></property>
+       <property name="value"><number>50</number></property>
+      </widget>
+     </item>
+     <item><widget class="QLabel" name="sliceLabel"><property name="text"><string>切片 Z</string></property></widget></item>
+     <item><widget class="QSlider" name="sliceSlider"><property name="orientation"><enum>Qt::Horizontal</enum></property></widget></item>
+    </layout>
+   </item>
+   <item alignment="Qt::AlignHCenter">
+    <widget class="QLabel" name="fusionView">
+     <property name="minimumSize"><size><width>300</width><height>300</height></size></property>
+     <property name="maximumSize"><size><width>300</width><height>300</height></size></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+     <property name="text"><string>请先在'配准'标签页运行配准</string></property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

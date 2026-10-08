@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RegisterTabView</class>
+ <widget class="QWidget" name="RegisterTabView">
+  <layout class="QVBoxLayout" name="rootLayout">
+   <item>
+    <layout class="QHBoxLayout" name="controlRow">
+     <item><widget class="QPushButton" name="runButton"><property name="text"><string>运行 3D 刚性配准(分割标注引导初始化,MR=fixed, US=moving)</string></property></widget></item>
+     <item><widget class="QLabel" name="sliceLabel"><property name="text"><string>切片 Z (MR 网格)</string></property></widget></item>
+     <item><widget class="QSlider" name="sliceSlider"><property name="orientation"><enum>Qt::Horizontal</enum></property></widget></item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="statusLabel">
+     <property name="text"><string>尚未运行配准</string></property>
+     <property name="wordWrap"><bool>true</bool></property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="imageRow">
+     <item>
+      <widget class="QGroupBox" name="fixedBox">
+       <property name="title"><string>MR (fixed)</string></property>
+       <layout class="QVBoxLayout" name="fixedLayout">
+        <item>
+         <widget class="QLabel" name="fixedView">
+          <property name="minimumSize"><size><width>300</width><height>300</height></size></property>
+          <property name="maximumSize"><size><width>300</width><height>300</height></size></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="alignedBox">
+       <property name="title"><string>US 配准后(重采样到 MR 网格)</string></property>
+       <layout class="QVBoxLayout" name="alignedLayout">
+        <item>
+         <widget class="QLabel" name="alignedView">
+          <property name="minimumSize"><size><width>300</width><height>300</height></size></property>
+          <property name="maximumSize"><size><width>300</width><height>300</height></size></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

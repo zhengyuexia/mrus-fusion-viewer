@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FilterTabView</class>
+ <widget class="QWidget" name="FilterTabView">
+  <layout class="QVBoxLayout" name="rootLayout">
+   <item>
+    <layout class="QHBoxLayout" name="controlRow">
+     <item><widget class="QLabel" name="modalityLabel"><property name="text"><string>模态</string></property></widget></item>
+     <item>
+      <widget class="QComboBox" name="modalityCombo">
+       <item><property name="text"><string>MR</string></property></item>
+       <item><property name="text"><string>US</string></property></item>
+      </widget>
+     </item>
+     <item><widget class="QLabel" name="sliceLabel"><property name="text"><string>切片 Z</string></property></widget></item>
+     <item><widget class="QSlider" name="sliceSlider"><property name="orientation"><enum>Qt::Horizontal</enum></property></widget></item>
+     <item><widget class="QLabel" name="iterationsLabel"><property name="text"><string>迭代次数</string></property></widget></item>
+     <item>
+      <widget class="QSpinBox" name="iterationsSpin">
+       <property name="minimum"><number>1</number></property>
+       <property name="maximum"><number>50</number></property>
+       <property name="value"><number>10</number></property>
+      </widget>
+     </item>
+     <item><widget class="QLabel" name="timeStepLabel"><property name="text"><string>timeStep</string></property></widget></item>
+     <item>
+      <widget class="QDoubleSpinBox" name="timeStepSpin">
+       <property name="minimum"><double>0.01</double></property>
+       <property name="maximum"><double>0.25</double></property>
+       <property name="singleStep"><double>0.01</double></property>
+       <property name="value"><double>0.125</double></property>
+      </widget>
+     </item>
+     <item><widget class="QPushButton" name="applyButton"><property name="text"><string>应用 CurvatureFlow 去噪 (Day1)</string></property></widget></item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="imageRow">
+     <item>
+      <widget class="QGroupBox" name="beforeBox">
+       <property name="title"><string>去噪前</string></property>
+       <layout class="QVBoxLayout" name="beforeLayout">
+        <item>
+         <widget class="QLabel" name="beforeView">
+          <property name="minimumSize"><size><width>300</width><height>300</height></size></property>
+          <property name="maximumSize"><size><width>300</width><height>300</height></size></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="afterBox">
+       <property name="title"><string>去噪后</string></property>
+       <layout class="QVBoxLayout" name="afterLayout">
+        <item>
+         <widget class="QLabel" name="afterView">
+          <property name="minimumSize"><size><width>300</width><height>300</height></size></property>
+          <property name="maximumSize"><size><width>300</width><height>300</height></size></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item><widget class="QLabel" name="statsLabel"><property name="text"><string>差值统计:尚未运行</string></property></widget></item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

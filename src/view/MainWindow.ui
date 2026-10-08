@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowTitle"><string>MR + Ultrasound Pipeline Viewer (ITK + Qt)</string></property>
+  <property name="geometry"><rect><x>0</x><y>0</y><width>1100</width><height>650</height></rect></property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="rootLayout">
+    <item>
+     <layout class="QHBoxLayout" name="topBar">
+      <item><widget class="QLabel" name="datasetLabel"><property name="text"><string>数据集</string></property></widget></item>
+      <item>
+       <widget class="QComboBox" name="datasetCombo">
+        <item><property name="text"><string>前列腺 Prostate (3例,带标注)</string></property></item>
+        <item><property name="text"><string>脑部 Brain BITE (1例,无标注)</string></property></item>
+       </widget>
+      </item>
+      <item><widget class="QLabel" name="caseLabel"><property name="text"><string>病例 case</string></property></widget></item>
+      <item>
+       <widget class="QSpinBox" name="caseSpin">
+        <property name="minimum"><number>0</number></property>
+        <property name="maximum"><number>2</number></property>
+       </widget>
+      </item>
+      <item><widget class="QPushButton" name="loadButton"><property name="text"><string>加载 / Load</string></property></widget></item>
+      <item>
+       <widget class="QLabel" name="infoLabel">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text"><string>尚未加载</string></property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget"/>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

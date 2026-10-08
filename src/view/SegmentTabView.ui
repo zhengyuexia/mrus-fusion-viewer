@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SegmentTabView</class>
+ <widget class="QWidget" name="SegmentTabView">
+  <layout class="QVBoxLayout" name="rootLayout">
+   <item>
+    <layout class="QHBoxLayout" name="controlRow">
+     <item><widget class="QLabel" name="modalityLabel"><property name="text"><string>模态</string></property></widget></item>
+     <item>
+      <widget class="QComboBox" name="modalityCombo">
+       <item><property name="text"><string>MR</string></property></item>
+       <item><property name="text"><string>US</string></property></item>
+      </widget>
+     </item>
+     <item><widget class="QLabel" name="sliceLabel"><property name="text"><string>切片 Z</string></property></widget></item>
+     <item><widget class="QSlider" name="sliceSlider"><property name="orientation"><enum>Qt::Horizontal</enum></property></widget></item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="paramRow">
+     <item><widget class="QLabel" name="seedXLabel"><property name="text"><string>种子 X</string></property></widget></item>
+     <item><widget class="QSpinBox" name="seedXSpin"/></item>
+     <item><widget class="QLabel" name="seedYLabel"><property name="text"><string>种子 Y</string></property></widget></item>
+     <item><widget class="QSpinBox" name="seedYSpin"/></item>
+     <item><widget class="QLabel" name="lowerLabel"><property name="text"><string>下限</string></property></widget></item>
+     <item>
+      <widget class="QSpinBox" name="lowerSpin">
+       <property name="maximum"><number>255</number></property>
+       <property name="value"><number>100</number></property>
+      </widget>
+     </item>
+     <item><widget class="QLabel" name="upperLabel"><property name="text"><string>上限</string></property></widget></item>
+     <item>
+      <widget class="QSpinBox" name="upperSpin">
+       <property name="maximum"><number>255</number></property>
+       <property name="value"><number>255</number></property>
+      </widget>
+     </item>
+     <item><widget class="QPushButton" name="runButton"><property name="text"><string>运行区域生长 (Day3 ConnectedThreshold)</string></property></widget></item>
+     <item><widget class="QCheckBox" name="showGroundTruthCheck"><property name="text"><string>叠加真实标注(绿色,重叠显黄)</string></property></widget></item>
+    </layout>
+   </item>
+   <item alignment="Qt::AlignHCenter">
+    <widget class="QLabel" name="segView">
+     <property name="minimumSize"><size><width>300</width><height>300</height></size></property>
+     <property name="maximumSize"><size><width>300</width><height>300</height></size></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+    </widget>
+   </item>
+   <item><widget class="QLabel" name="diceLabel"><property name="text"><string>Dice: 尚未运行</string></property></widget></item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
